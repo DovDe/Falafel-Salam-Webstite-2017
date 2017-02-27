@@ -1,18 +1,48 @@
-// $('#myCarousel').carousel({
-//   interval: 10000
-// })
-
-// $('.carousel .item').each(function(){
-//   var next = $(this).next();
-//   if (!next.length) {
-//     next = $(this).siblings(':first');
-//   }
-//   next.children(':first-child').clone().appendTo($(this));
+$(document).ready(function(){
   
-//   if (next.next().length>0) {
-//     next.next().children(':first-child').clone().appendTo($(this));
-//   }
-//   else {
-//   	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-//   }
-// });
+  
+ if (window.matchMedia('(min-width: 769px)').matches)  {
+         
+    // do functionality on screens larger than 768px
+      $(".carousel-container").load('html/carousel.html');  
+         
+        }else {
+       $('.subnav').hide();
+        }
+  
+  
+ $( window ).resize(function() {
+   
+       if (window.matchMedia('(min-width: 769px)').matches)  {
+         
+    // do functionality on screens smaller than 768px
+       $(".carousel-container").load('html/carousel.html');
+             $('.subnav').show();
+   
+       
+        
+        } else {
+         $('.subnav').hide();
+
+          
+          if ($(".carousel-container")) {
+           $("#myCarousel").remove(); 
+            
+          }
+        }
+  
+}); 
+  
+  
+});
+
+
+
+
+
+
+
+  
+  
+
+
